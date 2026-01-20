@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Resume</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="page">
+<input name="name" value="{{ session.get('name','') }}">
+
+  <!-- HERO / BRANDING -->
+  <div class="hero">
+    <h1> Resume Builder</h1>
+    <p>
+      Build ATS-optimized resumes, receive AI-powered feedback,
+      generate a portfolio website, and download professional PDFs —
+      all from one platform.
+    </p>
+
+    <ul>
+      <li>ATS Score & Analysis</li>
+      <li>AI Resume Suggestions</li>
+      <li>Portfolio Website Generator</li>
+      <li>PDF Export</li>
+      <li>GitHub & LinkedIn Import</li>
+    </ul>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="card">
+    <form method="post" enctype="multipart/form-data">
+
+      <input name="title" placeholder="Resume Title" required>
+
+      <select name="job_role" required>
+        <option value="Backend Developer">Backend Developer</option>
+        <option value="Frontend Developer">Frontend Developer</option>
+        <option value="Full Stack Developer">Full Stack Developer</option>
+        <option value="Data Analyst">Data Analyst</option>
+        <option value="AI / ML Engineer">AI / ML Engineer</option>
+      </select>
+
+      <textarea name="skills" placeholder="Skills (Python, Flask, SQL, DSA…)" required></textarea>
+
+      <textarea name="education" placeholder="Education details" required></textarea>
+
+      <textarea name="experience" placeholder="Experience / Internships / Projects" required></textarea>
+
+      <input name="linkedin" placeholder="LinkedIn URL">
+
+      <input name="github" placeholder="GitHub Username">
+
+      <input type="file" name="profile_pic" accept="image/*">
+
+      <select name="template">
+        <option value="template1.html">Minimal</option>
+        <option value="template2.html">Professional</option>
+      </select>
+
+      <button type="submit">Create Resume</button>
+
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>

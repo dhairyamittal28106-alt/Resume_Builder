@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ resume.title }}</title>
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#020617;
+      --text:#e5e7eb;
+      --accent:#38bdf8;
+    }
+
+    body.light{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --accent:#0ea5e9;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:Segoe UI, system-ui, sans-serif;
+      padding:20px;
+      transition:background .3s,color .3s;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+      background:var(--card);
+      padding:30px;
+      border-radius:18px;
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+
+    .toggle{
+      position:fixed;
+      top:20px;
+      right:20px;
+      border:none;
+      background:var(--card);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    .header{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:18px;
+      margin-bottom:30px;
+    }
+
+    @media(min-width:768px){
+      .header{
+        flex-direction:row;
+        text-align:left;
+      }
+    }
+
+    .profile-pic{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,.2);
+    }
+
+    h1{margin:0;font-size:32px}
+    h2{margin-top:25px}
+    h3{margin-top:20px;color:var(--accent)}
+
+    .muted{opacity:.8}
+
+    .projects-list{
+      list-style:none;
+      padding-left:0;
+      margin-top:10px;
+    }
+
+    .projects-list li{
+      margin:8px 0;
+    }
+
+    .projects-list a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    .projects-list a:hover{
+      text-decoration:underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggle()">🌙</button>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <!-- PROFILE PIC (LOCAL + OAUTH SAFE) -->
+    {% if resume.profile_pic %}
+      {% if resume.profile_pic.startswith("http") %}
+        <img src="{{ resume.profile_pic }}" class="profile-pic">
+      {% else %}
+        <img src="{{ url_for('static', filename='uploads/profile_pics/' + resume.profile_pic) }}" class="profile-pic">
+      {% endif %}
+    {% endif %}
+
+    <div>
+      <h1>{{ resume.title }}</h1>
+      <p class="muted">{{ resume.job_role }}</p>
+      <p class="muted">👀 {{ resume.views }} views</p>
+    </div>
+
+  </div>
+
+  <!-- PROJECTS -->
+  {% if projects %}
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      {% for p in projects %}
+        <li>
+          <a href="{{ p.url }}" target="_blank">
+            {{ p.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <!-- CONTENT -->
+  <h3>Skills</h3>
+  <p>{{ resume.skills }}</p>
+
+  <h3>Education</h3>
+  <p>{{ resume.education }}</p>
+
+  <h3>Experience</h3>
+  <p>{{ resume.experience }}</p>
+
+  <p><strong>GitHub:</strong> {{ resume.github }}</p>
+  <p><strong>LinkedIn:</strong> {{ resume.linkedin }}</p>
+
+</div>
+
+<script>
+function toggle(){
+  document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>

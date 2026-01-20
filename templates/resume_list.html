@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Resumes | Resume Builder</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="dashboard-page">
+
+  <!-- PAGE TITLE -->
+  <div class="page-title">
+    My Resumes 📄
+  </div>
+
+  <!-- RESUME LIST -->
+  <div class="resume-list">
+
+    {% for r in resumes %}
+      <div class="resume-card">
+
+        <div class="resume-header">
+          <div>
+            <h2>{{ r.title }}</h2>
+            <p class="role">{{ r.job_role }}</p>
+          </div>
+        </div>
+
+        <div class="resume-actions">
+  <a href="/preview/{{ r.id }}" class="dash-btn secondary">👁 Preview</a>
+  <a href="/portfolio/{{ r.id }}" class="dash-btn primary">🌐 Portfolio</a>
+  <a href="/download/{{ r.id }}" class="dash-btn secondary">⬇ Download PDF</a>
+</div>
+
+<div class="resume-delete">
+  <form method="post" action="/delete/{{ r.id }}" onsubmit="return confirm('Delete this resume?')">
+    <button type="submit" class="dash-btn danger">
+      🗑 Delete
+    </button>
+  </form>
+</div>
+
+
+      </div>
+    {% endfor %}
+
+  </div>
+
+</body>
+</html>

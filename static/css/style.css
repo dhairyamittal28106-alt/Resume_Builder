@@ -1,0 +1,593 @@
+/* =======================
+   GLOBAL THEME VARIABLES
+======================= */
+:root {
+  --bg: radial-gradient(circle at top left, #0f172a, #020617);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #38bdf8;
+  --danger: #ef4444;
+}
+
+/* =======================
+   BASE RESET
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* =======================
+   BODY DEFAULT (FOR FORMS)
+======================= */
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.85)),
+    url("/static/img/bg.jpg") center / cover no-repeat fixed;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dash-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dash-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+}
+.page-title,
+.dashboard-center,
+.card {
+  animation: slideFade 0.6s ease both;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =======================
+   PAGE LAYOUT
+======================= */
+.page {
+  width: 92%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+}
+
+/* =======================
+   HERO SECTION
+======================= */
+.hero {
+  padding-top: 80px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 460px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero ul {
+  list-style: none;
+  margin-top: 35px;
+}
+
+.hero li {
+  margin: 14px 0;
+  font-size: 16px;
+}
+
+.hero li::before {
+  content: "✔ ";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* =======================
+   CARD (GLASSMORPHISM)
+======================= */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(18px);
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  animation: fadeUp 0.7s ease;
+}
+
+/* =======================
+   FORM ELEMENTS
+======================= */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  min-height: 70px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+}
+
+/* =======================
+   FOCUS & INTERACTION
+======================= */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.55);
+}
+
+/* =======================
+   FILE INPUT
+======================= */
+input[type="file"] {
+  padding: 8px;
+  background: transparent;
+  color: var(--text);
+}
+
+/* =======================
+   BUTTON (FORM)
+======================= */
+button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+/* =======================
+   ANIMATION
+======================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   RESPONSIVE (FOR FORM PAGE)
+======================= */
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    display: none;
+  }
+}
+
+/* =======================
+   DASHBOARD (2026 STYLE)
+======================= */
+
+/* Override body centering ONLY for dashboard */
+body.dashboard-page {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Top welcome bar */
+.topbar {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.topbar h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Center actions */
+.dashboard-center {
+  margin-top: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dashboard buttons */
+.dash-btn {
+  width: 260px;
+  padding: 16px;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* Primary */
+.dash-btn.primary {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+}
+
+/* Secondary */
+.dash-btn.secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Danger */
+.dash-btn.danger {
+  background: rgba(239, 68, 68, 0.18);
+  color: #fecaca;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* Hover */
+.dash-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+/* =======================
+   RESUME LIST PAGE
+======================= */
+
+.resume-list {
+  margin-top: 120px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+}
+
+.resume-card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 26px 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  animation: fadeUp 0.6s ease;
+}
+
+.resume-card h2 {
+  margin-bottom: 6px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.resume-card .role {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.resume-actions a {
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+/* =======================
+   AUTH PAGES (LOGIN / REGISTER)
+======================= */
+
+.auth-card {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.auth-footer {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.auth-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+/* =======================
+   AUTH PAGE LAYOUT (2026)
+======================= */
+
+/* Override body centering for auth pages */
+body.auth-page {
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* App name at top */
+.app-title {
+  position: absolute;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #f8fafc;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Auth card spacing */
+.auth-card {
+  margin-top: 40px;
+}
+/* =======================
+   MY RESUMES PAGE (2026)
+======================= */
+
+.page-title {
+  position: absolute;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #f8fafc;
+}
+
+/* Center list */
+.resume-list {
+  margin-top: 140px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+/* Card layout */
+.resume-card {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 26px 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  animation: fadeUp 0.6s ease;
+}
+
+.resume-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.resume-header .role {
+  color: var(--muted);
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+
+/* Actions grid */
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Force buttons to stay inside */
+.resume-actions a,
+.resume-actions button {
+  flex: 1 1 180px;
+  max-width: 100%;
+  text-align: center;
+}
+.resume-card {
+  overflow: hidden;
+}
+
+/* Fix delete button stretching */
+.resume-actions form {
+  flex: 1 1 180px;
+  max-width: 100%;
+  display: flex;
+}
+
+.resume-actions form button {
+  width: 100%;
+}
+/* Delete section */
+.resume-delete {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.resume-delete form {
+  width: auto;
+}
+
+.resume-delete .dash-btn {
+  padding: 14px 22px;
+}
+
+/* Make delete form inline */
+.resume-actions form {
+  margin: 0;
+}
+.resume-actions form button {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+/* =======================
+   DASHBOARD GRID (2026)
+======================= */
+
+.dashboard-grid {
+  margin-top: 160px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Make dashboard buttons equal size */
+.dashboard-grid .dash-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 17px;
+  border-radius: 16px;
+  text-align: center;
+}
+.dashboard-grid .dash-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+/* =======================
+   DASHBOARD FINAL FIX
+======================= */
+
+/* Wrapper to force true center */
+.dashboard-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 160px;
+}
+
+/* Action grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Ensure equal button sizing */
+.dashboard-grid .dash-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 17px;
+  border-radius: 16px;
+  text-align: center;
+}
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.projects-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.projects-list li {
+  margin: 8px 0;
+}
+
+.projects-list a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.projects-list a:hover {
+  text-decoration: underline;
+}

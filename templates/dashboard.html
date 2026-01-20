@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="dashboard-page">
+
+  <!-- TOP WELCOME -->
+  <div class="page-title">
+    Welcome, {{ name }} 👋
+  </div>
+
+  <!-- CENTER ACTIONS -->
+  <div class="dashboard-wrapper">
+    <div class="dashboard-center">
+
+      <a href="/resume" class="dash-btn primary">
+        ➕ Create Resume
+      </a>
+
+      <a href="/my-resumes" class="dash-btn secondary">
+        📄 My Resumes
+      </a>
+
+      <a href="/logout" class="dash-btn danger">
+        🚪 Logout
+      </a>
+
+    </div>
+  </div>
+
+</body>
+</html>
