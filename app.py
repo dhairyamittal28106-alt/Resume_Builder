@@ -10,7 +10,7 @@ from xhtml2pdf import pisa
 from io import BytesIO
 import requests, os
 
-# ---------------- APP CONFIG ----------------
+
 
 app = Flask(__name__)
 app.secret_key = "resume_secret"
@@ -24,7 +24,7 @@ oauth = OAuth(app)
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_MODEL = "openai/gpt-4o-mini"
 
-# ---------------- OAUTH PROVIDERS ----------------
+
 
 github = oauth.register(
     name="github",
@@ -46,7 +46,7 @@ linkedin = oauth.register(
     client_kwargs={"scope": "r_liteprofile"}
 )
 
-# ---------------- MODELS ----------------
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -70,7 +70,7 @@ class Resume(db.Model):
     views = db.Column(db.Integer, default=0)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
 
-# ---------------- HELPERS ----------------
+
 
 def ats_score(r):
     score = 0
@@ -140,7 +140,7 @@ def fetch_github_projects(username):
     except:
         return []
 
-# ---------------- AUTH ROUTES ----------------
+
 
 @app.route("/")
 def login():
@@ -170,7 +170,7 @@ def register():
         return redirect("/")
     return render_template("register.html")
 
-# ---------------- GITHUB LOGIN ----------------
+
 
 @app.route("/login/github")
 def login_github():
@@ -190,7 +190,7 @@ def auth_github():
 
     return redirect("/resume")
 
-# ---------------- LINKEDIN LOGIN ----------------
+
 
 @app.route("/login/linkedin")
 def login_linkedin():
@@ -209,7 +209,7 @@ def auth_linkedin():
         profile["localizedLastName"]
     )
 
-    # Profile picture may or may not be available (LinkedIn restriction)
+    
     try:
         pic = linkedin.get(
             "me?projection=(profilePicture(displayImage~:playableStreams))"
@@ -220,7 +220,7 @@ def auth_linkedin():
 
     return redirect("/resume")
 
-# ---------------- DASHBOARD ----------------
+
 
 @app.route("/dashboard")
 def dashboard():
@@ -229,7 +229,7 @@ def dashboard():
         name=session.get("name")
     )
 
-# ---------------- RESUME ----------------
+
 
 @app.route("/resume", methods=["GET", "POST"])
 def resume():
@@ -283,7 +283,7 @@ def resume():
     )
 
 
-# ---------------- MY RESUMES ----------------
+
 
 @app.route("/my-resumes")
 def my_resumes():
@@ -303,7 +303,7 @@ def delete_resume(id):
     db.session.commit()
     return redirect("/my-resumes")
 
-# ---------------- PREVIEW & PDF ----------------
+
 
 @app.route("/preview/<int:id>")
 def preview(id):
@@ -338,11 +338,11 @@ def download(id):
     )
     return response
 
-# ---------------- PORTFOLIO ----------------
 
 
 
-# ---------------- LOGOUT ----------------
+
+
 
 @app.route("/logout")
 def logout():
@@ -361,7 +361,7 @@ def portfolio(id):
     )
 
 
-# ---------------- MAIN ----------------
+
 
 if __name__ == "__main__":
     with app.app_context():

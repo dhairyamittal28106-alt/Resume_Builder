@@ -106,10 +106,10 @@
 
 <div class="container">
 
-  <!-- HEADER -->
+   
   <div class="header">
 
-    <!-- PROFILE PIC (LOCAL + OAUTH SAFE) -->
+     
     {% if resume.profile_pic %}
       {% if resume.profile_pic.startswith("http") %}
         <img src="{{ resume.profile_pic }}" class="profile-pic">
@@ -126,7 +126,7 @@
 
   </div>
 
-  <!-- PROJECTS -->
+   
   {% if projects %}
     <h2>Projects</h2>
     <ul class="projects-list">
@@ -140,7 +140,7 @@
     </ul>
   {% endif %}
 
-  <!-- CONTENT -->
+   
   <h3>Skills</h3>
   <p>{{ resume.skills }}</p>
 

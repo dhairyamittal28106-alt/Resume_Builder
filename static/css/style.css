@@ -1,6 +1,6 @@
-/* =======================
-   GLOBAL THEME VARIABLES
-======================= */
+
+
+
 :root {
   --bg: radial-gradient(circle at top left, #0f172a, #020617);
   --card-bg: rgba(255, 255, 255, 0.08);
@@ -11,9 +11,9 @@
   --danger: #ef4444;
 }
 
-/* =======================
-   BASE RESET
-======================= */
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -21,9 +21,9 @@
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
-/* =======================
-   BODY DEFAULT (FOR FORMS)
-======================= */
+
+
+
 body {
   min-height: 100vh;
   background:
@@ -60,9 +60,9 @@ body {
 }
 
 
-/* =======================
-   PAGE LAYOUT
-======================= */
+
+
+
 .page {
   width: 92%;
   max-width: 1200px;
@@ -71,9 +71,9 @@ body {
   gap: 60px;
 }
 
-/* =======================
-   HERO SECTION
-======================= */
+
+
+
 .hero {
   padding-top: 80px;
 }
@@ -108,9 +108,9 @@ body {
   font-weight: bold;
 }
 
-/* =======================
-   CARD (GLASSMORPHISM)
-======================= */
+
+
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -121,9 +121,9 @@ body {
   animation: fadeUp 0.7s ease;
 }
 
-/* =======================
-   FORM ELEMENTS
-======================= */
+
+
+
 form {
   display: flex;
   flex-direction: column;
@@ -152,9 +152,9 @@ textarea::placeholder {
   color: #64748b;
 }
 
-/* =======================
-   FOCUS & INTERACTION
-======================= */
+
+
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -162,18 +162,18 @@ select:focus {
   box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.55);
 }
 
-/* =======================
-   FILE INPUT
-======================= */
+
+
+
 input[type="file"] {
   padding: 8px;
   background: transparent;
   color: var(--text);
 }
 
-/* =======================
-   BUTTON (FORM)
-======================= */
+
+
+
 button {
   margin-top: 10px;
   padding: 14px;
@@ -192,9 +192,9 @@ button:hover {
   box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
 }
 
-/* =======================
-   ANIMATION
-======================= */
+
+
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -206,9 +206,9 @@ button:hover {
   }
 }
 
-/* =======================
-   RESPONSIVE (FOR FORM PAGE)
-======================= */
+
+
+
 @media (max-width: 900px) {
   .page {
     grid-template-columns: 1fr;
@@ -219,17 +219,17 @@ button:hover {
   }
 }
 
-/* =======================
-   DASHBOARD (2026 STYLE)
-======================= */
 
-/* Override body centering ONLY for dashboard */
+
+
+
+ 
 body.dashboard-page {
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-/* Top welcome bar */
+ 
 .topbar {
   width: 100%;
   text-align: center;
@@ -242,7 +242,7 @@ body.dashboard-page {
   color: var(--text);
 }
 
-/* Center actions */
+ 
 .dashboard-center {
   margin-top: 120px;
   width: 100%;
@@ -253,7 +253,7 @@ body.dashboard-page {
   justify-content: center;
 }
 
-/* Dashboard buttons */
+ 
 .dash-btn {
   width: 260px;
   padding: 16px;
@@ -265,34 +265,34 @@ body.dashboard-page {
   transition: all 0.25s ease;
 }
 
-/* Primary */
+ 
 .dash-btn.primary {
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   color: #020617;
 }
 
-/* Secondary */
+ 
 .dash-btn.secondary {
   background: rgba(255, 255, 255, 0.12);
   color: var(--text);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Danger */
+ 
 .dash-btn.danger {
   background: rgba(239, 68, 68, 0.18);
   color: #fecaca;
   border: 1px solid rgba(239, 68, 68, 0.35);
 }
 
-/* Hover */
+ 
 .dash-btn:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
-/* =======================
-   RESUME LIST PAGE
-======================= */
+
+
+
 
 .resume-list {
   margin-top: 120px;
@@ -340,9 +340,9 @@ body.dashboard-page {
   font-weight: 600;
   transition: all 0.25s ease;
 }
-/* =======================
-   AUTH PAGES (LOGIN / REGISTER)
-======================= */
+
+
+
 
 .auth-card {
   width: 100%;
@@ -377,17 +377,17 @@ body.dashboard-page {
 .auth-footer a:hover {
   text-decoration: underline;
 }
-/* =======================
-   AUTH PAGE LAYOUT (2026)
-======================= */
 
-/* Override body centering for auth pages */
+
+
+
+ 
 body.auth-page {
   flex-direction: column;
   justify-content: center;
 }
 
-/* App name at top */
+ 
 .app-title {
   position: absolute;
   top: 36px;
@@ -400,13 +400,13 @@ body.auth-page {
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
-/* Auth card spacing */
+ 
 .auth-card {
   margin-top: 40px;
 }
-/* =======================
-   MY RESUMES PAGE (2026)
-======================= */
+
+
+
 
 .page-title {
   position: absolute;
@@ -419,7 +419,7 @@ body.auth-page {
   color: #f8fafc;
 }
 
-/* Center list */
+ 
 .resume-list {
   margin-top: 140px;
   width: 100%;
@@ -430,7 +430,7 @@ body.auth-page {
   align-items: center;
 }
 
-/* Card layout */
+ 
 .resume-card {
   width: 100%;
   background: var(--card-bg);
@@ -453,14 +453,14 @@ body.auth-page {
   margin-bottom: 18px;
 }
 
-/* Actions grid */
+ 
 .resume-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
 }
 
-/* Force buttons to stay inside */
+ 
 .resume-actions a,
 .resume-actions button {
   flex: 1 1 180px;
@@ -471,7 +471,7 @@ body.auth-page {
   overflow: hidden;
 }
 
-/* Fix delete button stretching */
+ 
 .resume-actions form {
   flex: 1 1 180px;
   max-width: 100%;
@@ -481,7 +481,7 @@ body.auth-page {
 .resume-actions form button {
   width: 100%;
 }
-/* Delete section */
+ 
 .resume-delete {
   margin-top: 18px;
   display: flex;
@@ -496,7 +496,7 @@ body.auth-page {
   padding: 14px 22px;
 }
 
-/* Make delete form inline */
+ 
 .resume-actions form {
   margin: 0;
 }
@@ -508,9 +508,9 @@ body.auth-page {
   font-weight: 600;
   transition: all 0.25s ease;
 }
-/* =======================
-   DASHBOARD GRID (2026)
-======================= */
+
+
+
 
 .dashboard-grid {
   margin-top: 160px;
@@ -523,7 +523,7 @@ body.auth-page {
   margin-right: auto;
 }
 
-/* Make dashboard buttons equal size */
+ 
 .dashboard-grid .dash-btn {
   width: 100%;
   padding: 18px;
@@ -535,11 +535,11 @@ body.auth-page {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
-/* =======================
-   DASHBOARD FINAL FIX
-======================= */
 
-/* Wrapper to force true center */
+
+
+
+ 
 .dashboard-wrapper {
   width: 100%;
   display: flex;
@@ -547,7 +547,7 @@ body.auth-page {
   margin-top: 160px;
 }
 
-/* Action grid */
+ 
 .dashboard-grid {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -556,7 +556,7 @@ body.auth-page {
   max-width: 360px;
 }
 
-/* Ensure equal button sizing */
+ 
 .dashboard-grid .dash-btn {
   width: 100%;
   padding: 18px;
